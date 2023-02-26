@@ -1,33 +1,16 @@
 import React from 'react';
+import TodoListItem from './TodoListItem';
 
-const todoList = [
-  {
-    id: 1,
-    title: "React Assignments"
-  },
-  {
-    id: 2,
-    title: "Algorithm Practice"
-  },
-  {
-    id: 3,
-    title: "Review"
-  },
-  {
-    id: 4,
-    title: "Build"
-  },
-
-
-];
-
-function ToDoList () {
+function ToDoList({ todoList, onRemoveTodo }) {
+  console.log("todoList", todoList)
   return (
     <ul style={{listStyleType:'none'}}>
-      {todoList.map(item => <li key={item.id}>{item.title}</li>)}
+      {todoList.map(function(item) {
+        return (
+          <TodoListItem key={item.id} item={item} onRemoveTodo={onRemoveTodo}/>);
+      })}      
     </ul>
   )
 }
-
 
 export default ToDoList;
